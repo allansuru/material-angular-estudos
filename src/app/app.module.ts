@@ -3,6 +3,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -17,13 +18,15 @@ import { MaterialTableComponent, DialogCreateCommentComponent } from './material
 import { DataService } from './services/data.service';
 import { CommentService } from './services/comments.service';
 import { HttpModule } from '@angular/http';
+import { ExemplesMaterialComponent } from './exemples-material/exemples-material.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialTableComponent,
-    DialogCreateCommentComponent
+    DialogCreateCommentComponent,
+    ExemplesMaterialComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { HttpModule } from '@angular/http';
     HttpModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   entryComponents: [DialogCreateCommentComponent],
   providers: [

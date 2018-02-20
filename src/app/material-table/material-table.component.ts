@@ -59,7 +59,6 @@ export class MaterialTableComponent implements OnInit, AfterViewInit {
   }
 
   createComment(result) {
-
     //console.log('Resultado do dialog: ', result);
     this.newComment.name = result['name'];
     this.newComment.email = result['email'];
