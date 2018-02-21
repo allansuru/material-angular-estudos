@@ -9,7 +9,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatSelectModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 
 
@@ -41,7 +41,8 @@ import { ExemplesMaterialComponent } from './exemples-material/exemples-material
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   entryComponents: [DialogCreateCommentComponent],
   providers: [
