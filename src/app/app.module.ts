@@ -9,9 +9,38 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule, MatSelectModule } from '@angular/material';
+import {
+  MatInputModule,
+   MatSelectModule,
+   MatDatepickerModule,
+   MatNativeDateModule,
+   NativeDateAdapter,
+   MatAutocompleteModule,
+   MatButtonModule,
+   MatButtonToggleModule,
+   MatCardModule,
+   MatChipsModule,
+   MatDividerModule,
+   MatExpansionModule,
+   MatGridListModule,
+   MatIconModule,
+   MatListModule,
+   MatMenuModule,
+   MatProgressBarModule,
+   MatProgressSpinnerModule,
+   MatRippleModule,
+   MatSidenavModule,
+   MatSliderModule,
+   MatSlideToggleModule,
+   MatSnackBarModule,
+   MatStepperModule,
+   MatTabsModule,
+   MatToolbarModule,
+   MatTooltipModule,
+  } from '@angular/material';
 import { NgModule } from '@angular/core';
 
+import {CdkTableModule} from '@angular/cdk/table';
 
 import { AppComponent } from './app.component';
 import { MaterialTableComponent, DialogCreateCommentComponent } from './material-table/material-table.component';
@@ -42,7 +71,41 @@ import { ExemplesMaterialComponent } from './exemples-material/exemples-material
     FormsModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    CdkTableModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
   ],
   entryComponents: [DialogCreateCommentComponent],
   providers: [

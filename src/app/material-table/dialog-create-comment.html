@@ -6,9 +6,13 @@
   <mat-form-field>
     <p>Email: </p> <input matInput  [(ngModel)]="data.email" >
    </mat-form-field>
-   <mat-form-field>
+   <!-- <mat-form-field>
     <p>Body: </p> <input matInput  [(ngModel)]="data.body" >
-   </mat-form-field>
+   </mat-form-field> -->
+   <p>Body: </p>
+   <mat-form-field>
+    <textarea matInput placeholder="Textarea" [(ngModel)]="data.body"></textarea>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

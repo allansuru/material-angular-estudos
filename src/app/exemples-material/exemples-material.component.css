@@ -10,3 +10,10 @@
   .example-selected-value {
     margin: 15px 0;
   }
+
+  .example-events {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #555;
+    overflow: auto;
+  }

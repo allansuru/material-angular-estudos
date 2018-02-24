@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import {FormControl, Validators} from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-exemples-material',
@@ -28,6 +30,10 @@ export class ExemplesMaterialComponent implements OnInit {
   ];
   favoriteSeason2;
 
+  // ------------------------//
+
+  events: string[] = [];
+
   constructor() { }
 
   ngOnInit() {
@@ -39,6 +45,16 @@ export class ExemplesMaterialComponent implements OnInit {
   onChangeRadioButton(favoriteSeason2) {
     this.favoriteSeason2 = favoriteSeason2;
     console.log('Radio Btn:', this.favoriteSeason2);
+  }
+
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.events.push(`${type}: ${event.value}`);
+  }
+
+  changeEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    if (this.events.length === 3) {
+      this.events = [];
+    }
   }
 
 }

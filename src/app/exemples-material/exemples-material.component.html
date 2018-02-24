@@ -27,3 +27,15 @@ class="example-margin">Show Details</mat-checkbox>
   <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
   <mat-hint>{{animalControl.value?.sound}}</mat-hint>
 </mat-form-field>
+<br>
+<h2>Data Picker - Com eventos</h2><mat-icon>home</mat-icon><i class="material-icons">code</i><i class="material-icons">pets</i>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Input & change events"
+         (dateInput)="addEvent('input', $event)" (dateChange)="changeEvent('change', $event)">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<div class="example-events">
+  <div *ngFor="let e of events">{{e}}</div>
+</div>
