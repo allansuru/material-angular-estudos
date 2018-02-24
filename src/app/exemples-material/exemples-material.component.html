@@ -28,14 +28,36 @@ class="example-margin">Show Details</mat-checkbox>
   <mat-hint>{{animalControl.value?.sound}}</mat-hint>
 </mat-form-field>
 <br>
+
+<h2>Escolha a estação:</h2><i class="material-icons">face</i>
+<mat-form-field style="width: 300px">
+  <mat-select placeholder="Escolha um evento" 
+  (change)="selecionaEvento(evento.data)" 
+  [(ngModel)]="evento.data">
+    <mat-option *ngFor="let ee of evento" [value]="ee.data">
+      {{ee.id}} - {{ ee.titulo }} 
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 <h2>Data Picker - Com eventos</h2><mat-icon>home</mat-icon><i class="material-icons">code</i><i class="material-icons">pets</i>
 <mat-form-field>
   <input matInput [matDatepicker]="picker" placeholder="Input & change events"
-         (dateInput)="addEvent('input', $event)" (dateChange)="changeEvent('change', $event)">
+         (dateInput)="addEvent('input', $event, picker, evento.data)" (dateChange)="changeEvent('change', $event)">
+
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
 </mat-form-field>
-
-<div class="example-events">
-  <div *ngFor="let e of events">{{e}}</div>
+<div class="example-events" *ngIf="recebeFiltro.id > 0">
+  <!-- <div *ngFor="let f of recebeFiltro">
+   <p>Título do Evento: {{ f.titulo }}</p>
+   <p>Descrição: {{ f.corpo }}</p> 
+   <p>Data: {{ f.data }}</p>
+   <p>Aniversariante: {{ f.name }}</p> 
+  </div> -->
+  <div>
+   <p>Título do Evento: {{ recebeFiltro.titulo }}</p>
+   <p>Descrição: {{ recebeFiltro.corpo }}</p> 
+   <p>Data: {{ recebeFiltro.data }}</p>
+   <p>Aniversariante: {{ recebeFiltro.name }}</p> 
+  </div>
 </div>
