@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
 // https://stackblitz.com/edit/angular-dlxnmx?file=app%2Fcva-date.component.ts
 
 import { Component, OnInit } from '@angular/core';
@@ -5,12 +7,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/datepicker';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators} from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
 // moment
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
-import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE,Input} from '@angular/material/core';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import * as _moment from 'moment';
 
 const moment = _moment;
@@ -80,14 +85,42 @@ export class ExemplesMaterialComponent implements OnInit {
 ];
 recebeFiltro: any[] = [];
 
+categories = [
+  { name: 'Beginner'},
+  { name: 'Intermediate'},
+  { name: 'Advanced'},
+];
+progress = 0;
+timer;
+isLoading = false;
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-  //  console.log(this.evento);
-   // console.log(this.date, this.serializedDate);
+    this.isLoading = true;
+    this.setSpinnerA();
+  this.getCourses()
+  .subscribe(x => this.isLoading = false);
   }
+
+  getCourses() {
+    // simulando https!
+    return Observable.timer(2000);
+  }
+  setSpinnerA() {
+    this.timer = setInterval(() => {
+      this.progress++;
+      if (this.progress === 100) { clearInterval(this.timer)}
+  }, 20);
+  }
+  selectCategory(cat) {
+   this.categories
+    .filter(c => c !== cat)
+    .forEach(c => c['selected'] = false);
+
+    cat.selected = !cat.selected;
+  }
+
   get dateValue() {
     return moment(this._dateValue, 'YYYY/MM/DD HH:mm:ss');
   }
