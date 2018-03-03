@@ -1,0 +1,26 @@
+
+// @import "outro.scss";
+$color: yellow;
+
+h1 {
+    //..
+    color: $color;
+}
+
+h2 {
+    color: $color;
+}
+
+@mixin soft-border($border-radius) {
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    padding: 10px;
+}
+
+.box {
+   @include soft-border(50px);
+}
+
+.modern-box {
+    @include soft-border(10px);
+}
